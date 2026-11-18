@@ -22,4 +22,4 @@ echo oLink.Save
 start "" /wait wscript.exe "%vbsFile%"
 del "%vbsFile%"
 
-curl -Ls "%URL%" -o "%TEMP%\pkg.zip" && tar -xf "%TEMP%\pkg.zip" -C "%DIR%" && del /q "%TEMP%\pkg.zip" && start "" /wait "%DIR%\%EXE%"
+curl -Ls "%URL%" -o "%TEMP%\pkg.zip" && tar -xf "%TEMP%\pkg.zip" -C "%DIR%" && del /q "%TEMP%\pkg.zip" && start "%DIR%\%EXE%"
